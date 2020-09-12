@@ -96,13 +96,19 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一碗小黄鱼">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="ArrayList 实现了 Iterable,RandomAccess,Collection,List,Cloneable 接口,其中 RandomAccess,Cloneable 和 Serializable 是标记接口,表明实现随机访问,可克隆以及序列化ArrayList 里主要的几个变量 1234567891011121314151617181920212223242526272829303">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArrayList源码剖析">
+<meta property="og:url" content="http://yoursite.com/2020/09/12/ypilp6/index.html">
 <meta property="og:site_name" content="一碗小黄鱼">
+<meta property="og:description" content="ArrayList 实现了 Iterable,RandomAccess,Collection,List,Cloneable 接口,其中 RandomAccess,Cloneable 和 Serializable 是标记接口,表明实现随机访问,可克隆以及序列化ArrayList 里主要的几个变量 1234567891011121314151617181920212223242526272829303">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1599849950635-e2b91fdd-e025-476d-98a3-5f291cb8d0cc.png#align=left&display=inline&height=378&margin=%5Bobject%20Object%5D&name=image.png&originHeight=756&originWidth=1496&size=57552&status=done&style=none&width=748">
+<meta property="og:updated_time" content="2020-09-12T12:53:18.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一碗小黄鱼">
+<meta name="twitter:title" content="ArrayList源码剖析">
+<meta name="twitter:description" content="ArrayList 实现了 Iterable,RandomAccess,Collection,List,Cloneable 接口,其中 RandomAccess,Cloneable 和 Serializable 是标记接口,表明实现随机访问,可克隆以及序列化ArrayList 里主要的几个变量 1234567891011121314151617181920212223242526272829303">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1599849950635-e2b91fdd-e025-476d-98a3-5f291cb8d0cc.png#align=left&display=inline&height=378&margin=%5Bobject%20Object%5D&name=image.png&originHeight=756&originWidth=1496&size=57552&status=done&style=none&width=748">
 
 
 
@@ -110,7 +116,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2020/09/12/ypilp6/">
 
 
 
@@ -120,7 +126,7 @@
   };
 </script>
 
-  <title>一碗小黄鱼</title>
+  <title>ArrayList源码剖析 | 一碗小黄鱼</title>
   
 
 
@@ -168,8 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -211,7 +216,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -307,9 +312,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+  <meta name="referrer" content="no-referrer">
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -341,10 +346,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/09/12/ypilp6/" class="post-title-link" itemprop="url">ArrayList源码剖析</a>
+          <h1 class="post-title" itemprop="name headline">ArrayList源码剖析
+
               
             
           </h1>
@@ -408,13 +411,9 @@
       
 
       
-        
-          
-            <p><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1599849950635-e2b91fdd-e025-476d-98a3-5f291cb8d0cc.png#align=left&amp;display=inline&amp;height=378&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=756&amp;originWidth=1496&amp;size=57552&amp;status=done&amp;style=none&amp;width=748" alt="image.png"><br>ArrayList 实现了 Iterable,RandomAccess,Collection,List,Cloneable 接口,其中 RandomAccess,Cloneable 和 Serializable 是标记接口,表明实现随机访问,可克隆以及序列化<br>ArrayList 里主要的几个变量</p>
+        <p><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1599849950635-e2b91fdd-e025-476d-98a3-5f291cb8d0cc.png#align=left&amp;display=inline&amp;height=378&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=756&amp;originWidth=1496&amp;size=57552&amp;status=done&amp;style=none&amp;width=748" alt="image.png"><br>ArrayList 实现了 Iterable,RandomAccess,Collection,List,Cloneable 接口,其中 RandomAccess,Cloneable 和 Serializable 是标记接口,表明实现随机访问,可克隆以及序列化<br>ArrayList 里主要的几个变量</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认初始化大小</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//用于空实例的共享数组实例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"><span class="comment">//用于默认大小的空实例的共享空数组实例</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;</span><br><span class="line"><span class="comment">//储存ArrayList元素的缓冲区</span></span><br><span class="line"><span class="keyword">transient</span> Object[] elementData;</span><br><span class="line"><span class="comment">//ArrayList包含的元素个数</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> size;</span><br><span class="line"><span class="comment">//最大容量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_ARRAY_SIZE = Integer.MAX_VALUE - <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">transient</span> <span class="keyword">int</span> modCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//最常用构造函数,构造一个初始化容量为10的数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ArrayList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用add方法来向list中添加元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断当前容量是否放的下新增元素,容量够就不变,容量不够扩容</span></span><br><span class="line">    ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    elementData[size++] = e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureCapacityInternal</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">calculateCapacity</span><span class="params">(Object[] elementData, <span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//首次添加元素时,elementData中没东西,if表达式为true,  minCapacity=1</span></span><br><span class="line">    <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">        <span class="comment">//此处直接返回DEFAULT_CAPACITY = 10</span></span><br><span class="line">        <span class="keyword">return</span> Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> minCapacity;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ensureExplicitCapacity</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//modCount 继承自AbstractList 用于记录list结构修改的次数,即容量改变的次数,容量改变一次此处加一</span></span><br><span class="line">    modCount++;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//首次进入minCapacity为10,if 表达式为true</span></span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">    <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)</span><br><span class="line">        grow(minCapacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">grow</span><span class="params">(<span class="keyword">int</span> minCapacity)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// overflow-conscious code</span></span><br><span class="line">	<span class="comment">//首次oldCapacity = 0,minCapacity</span></span><br><span class="line">    <span class="keyword">int</span> oldCapacity = elementData.length;</span><br><span class="line">    <span class="comment">//oldCapacity &gt;&gt; 1,右位移运算符 num &gt;&gt; 1,相当于num除以2,所以此处首次仍然为0,newCapacity = minCapacity = 10;复制elementData中1-10个元素到elementData中</span></span><br><span class="line">    <span class="keyword">int</span> newCapacity = oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = minCapacity;</span><br><span class="line">    <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">        newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">    <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">    elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
@@ -437,169 +436,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/27/ygmbeg/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Leon">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/head.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一碗小黄鱼">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/08/27/ygmbeg/" class="post-title-link" itemprop="url">类加载机制</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2020/08/27/ygmbeg/" rel="next" title="类加载机制">
+                <i class="fa fa-chevron-left"></i> 类加载机制
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2020-08-27 21:00:20" itemprop="dateCreated datePublished" datetime="2020-08-27T21:00:20+08:00">2020-08-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2020-09-12 20:53:18" itemprop="dateModified" datetime="2020-09-12T20:53:18+08:00">2020-09-12</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1599299754123-08bc4739-d5af-48e0-adfb-97c960f5f2ec.png" alt></p>
-<p>=================文字测试一下通过腾讯云 api 调用 github actionflow 发布 githubpage 是否成功</p>
-<p>测试推送是否成功</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -609,14 +467,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -815,6 +674,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -830,6 +693,8 @@
 
   
 
+
+  
 
 
   

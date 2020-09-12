@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F04%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+    <title><![CDATA[ArrayList源码剖析]]></title>
+    <url>%2F2020%2F09%2F12%2Fypilp6%2F</url>
+    <content type="text"><![CDATA[ArrayList 实现了 Iterable,RandomAccess,Collection,List,Cloneable 接口,其中 RandomAccess,Cloneable 和 Serializable 是标记接口,表明实现随机访问,可克隆以及序列化ArrayList 里主要的几个变量 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465//默认初始化大小private static final int DEFAULT_CAPACITY = 10;//用于空实例的共享数组实例private static final Object[] EMPTY_ELEMENTDATA = &#123;&#125;;//用于默认大小的空实例的共享空数组实例private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = &#123;&#125;;//储存ArrayList元素的缓冲区transient Object[] elementData;//ArrayList包含的元素个数private int size;//最大容量private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;protected transient int modCount = 0;//最常用构造函数,构造一个初始化容量为10的数组public ArrayList() &#123; this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;&#125;//调用add方法来向list中添加元素public boolean add(E e) &#123; //判断当前容量是否放的下新增元素,容量够就不变,容量不够扩容 ensureCapacityInternal(size + 1); // Increments modCount!! // elementData[size++] = e; return true;&#125;private void ensureCapacityInternal(int minCapacity) &#123; ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));&#125;private static int calculateCapacity(Object[] elementData, int minCapacity) &#123; //首次添加元素时,elementData中没东西,if表达式为true, minCapacity=1 if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123; //此处直接返回DEFAULT_CAPACITY = 10 return Math.max(DEFAULT_CAPACITY, minCapacity); &#125; return minCapacity;&#125;private void ensureExplicitCapacity(int minCapacity) &#123; //modCount 继承自AbstractList 用于记录list结构修改的次数,即容量改变的次数,容量改变一次此处加一 modCount++; //首次进入minCapacity为10,if 表达式为true // overflow-conscious code if (minCapacity - elementData.length &gt; 0) grow(minCapacity);&#125;private void grow(int minCapacity) &#123; // overflow-conscious code //首次oldCapacity = 0,minCapacity int oldCapacity = elementData.length; //oldCapacity &gt;&gt; 1,右位移运算符 num &gt;&gt; 1,相当于num除以2,所以此处首次仍然为0,newCapacity = minCapacity = 10;复制elementData中1-10个元素到elementData中 int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1); if (newCapacity - minCapacity &lt; 0) newCapacity = minCapacity; if (newCapacity - MAX_ARRAY_SIZE &gt; 0) newCapacity = hugeCapacity(minCapacity); // minCapacity is usually close to size, so this is a win: elementData = Arrays.copyOf(elementData, newCapacity);&#125;]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[类加载机制]]></title>
+    <url>%2F2020%2F08%2F27%2Fygmbeg%2F</url>
+    <content type="text"><![CDATA[=================文字测试一下通过腾讯云 api 调用 github actionflow 发布 githubpage 是否成功 测试推送是否成功]]></content>
   </entry>
 </search>
