@@ -324,6 +324,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/06/rydn3g/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Leon">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/head.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一碗小黄鱼">
+    </span>
+
+    
+      <header class="post-header">
+        <meta name="referrer" content="no-referrer">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/11/06/rydn3g/" class="post-title-link" itemprop="url">Spring源码分析&lt;1.环境搭建&gt;</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2020-11-06 13:58:26 / Modified: 14:28:28" itemprop="dateCreated datePublished" datetime="2020-11-06T13:58:26+08:00">2020-11-06</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>先去 github 或码云下载 Spring 源码,我这里直接 fork 一份到自己的 github,然后从自己的 github 仓库拉 clone</li>
+</ol>
+<p>Spring 官方代码地址: <a href="https://github.com/spring-projects/spring-framework" target="_blank" rel="noopener">https://github.com/spring-projects/spring-framework</a> 点右上角的 fork<br><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604642572234-d52b4432-15b7-47e4-abde-a897ea2003e2.png#align=left&amp;display=inline&amp;height=315&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=629&amp;originWidth=1868&amp;size=151240&amp;status=done&amp;style=none&amp;width=934" alt="image.png"></p>
+<ol start="2">
+<li>到自己的 github 找到刚才 fork 好的仓库(相当于直接把 spring 的官方仓库拷贝一份到自己仓库) , 找到地址,直接 clone</li>
+</ol>
+<p>git clone <a href="https://github.com/xiayuyuyu/spring-framework.git" target="_blank" rel="noopener">https://github.com/xiayuyuyu/spring-framework.git</a><br>等一段时间(有梯子的会稍快),没装 git 的自己装一波,课可以选择下载 zip 包解压</p>
+<ol start="3">
+<li>配置 gradle (不赘述)</li>
+<li>进入刚才的 spring-framwork 文件夹下, <code>gradlew :spring-oxm:compileTestJava</code> 进行编译</li>
+<li>IDEA 导入源码, File-&gt;New-&gt;Project From Existing Sources, 选中 spring-framework 源码文件夹，点击 OK，选择 Import project from external model，选中 Gradle，点击 Finish</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643029206-5b821d64-3db7-4a46-abff-ad57061775df.png#align=left&amp;display=inline&amp;height=373&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=373&amp;originWidth=696&amp;size=25809&amp;status=done&amp;style=none&amp;width=696" alt="image.png"></p>
+<ol start="6">
+<li>初次导入 慢慢等待编译完成,直到下面的 Build 看到,我这里是第二次 Build 所以速度比较快,一般第一次视网速,电脑配置而定,大约要 20 分钟左右</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643107828-ff916124-2be7-47c7-a79a-d32a9bd0213c.png#align=left&amp;display=inline&amp;height=345&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=345&amp;originWidth=1785&amp;size=66775&amp;status=done&amp;style=none&amp;width=1785" alt="image.png"></p>
+<ol start="7">
+<li>将自己项目与刚才编译好的源码相关联,此处可以采用 2 中方式<ol>
+<li>另外起一个项目,添加 spring 的依赖,然后更改项目的 Project Structure,删除原有从 maven 仓库里导入的 spring 包和源码,添加自己刚才编译好的 jar 包和源码<img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643760687-f33b0483-0663-4690-a1b5-21701f4e5462.png#align=left&amp;display=inline&amp;height=837&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=837&amp;originWidth=1024&amp;size=170964&amp;status=done&amp;style=none&amp;width=1024" alt="image.png"></li>
+<li>就在此项目另外添加一个测试的 module,强烈推荐这种方法, <strong>优点: 不用 2 个项目切来切去! </strong></li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/ypilp6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -370,12 +539,24 @@
                 
               
 
-              <time title="Created: 2020-09-12 02:30:36 / Modified: 22:04:46" itemprop="dateCreated datePublished" datetime="2020-09-12T02:30:36+08:00">2020-09-12</time>
+              <time title="Created: 2020-09-12 02:30:36" itemprop="dateCreated datePublished" datetime="2020-09-12T02:30:36+08:00">2020-09-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-11-06 14:28:28" itemprop="dateModified" datetime="2020-11-06T14:28:28+08:00">2020-11-06</time>
               
             
           </span>
@@ -533,7 +714,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2020-09-12 22:04:46" itemprop="dateModified" datetime="2020-09-12T22:04:46+08:00">2020-09-12</time>
+                <time title="Modified: 2020-11-06 14:28:28" itemprop="dateModified" datetime="2020-11-06T14:28:28+08:00">2020-11-06</time>
               
             
           </span>
@@ -658,7 +839,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
