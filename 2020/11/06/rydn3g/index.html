@@ -107,7 +107,12 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643029206-5b821d64-3db7-4a46-abff-ad57061775df.png#align=left&display=inline&height=373&margin=%5Bobject%20Object%5D&name=image.png&originHeight=373&originWidth=696&size=25809&status=done&style=none&width=696">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643107828-ff916124-2be7-47c7-a79a-d32a9bd0213c.png#align=left&display=inline&height=345&margin=%5Bobject%20Object%5D&name=image.png&originHeight=345&originWidth=1785&size=66775&status=done&style=none&width=1785">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643760687-f33b0483-0663-4690-a1b5-21701f4e5462.png#align=left&display=inline&height=837&margin=%5Bobject%20Object%5D&name=image.png&originHeight=837&originWidth=1024&size=170964&status=done&style=none&width=1024">
-<meta property="og:updated_time" content="2020-11-06T06:28:28.341Z">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604644361389-ce313db4-4bf1-4fc6-b13e-247ce0460815.png#align=left&display=inline&height=579&margin=%5Bobject%20Object%5D&name=image.png&originHeight=579&originWidth=838&size=70637&status=done&style=none&width=838">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604644476559-672006b3-9444-440b-993c-2099dbac8386.png#align=left&display=inline&height=579&margin=%5Bobject%20Object%5D&name=image.png&originHeight=579&originWidth=838&size=45783&status=done&style=none&width=838">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604644631975-33b59825-9f9b-452d-b927-781180ae953f.png#align=left&display=inline&height=446&margin=%5Bobject%20Object%5D&name=image.png&originHeight=446&originWidth=1060&size=91731&status=done&style=none&width=1060">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604650039171-0d2837ec-5fe6-40a4-b6d5-dedcb35aae2c.png#align=left&display=inline&height=564&margin=%5Bobject%20Object%5D&name=image.png&originHeight=564&originWidth=1242&size=63415&status=done&style=none&width=1242">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604981915137-1d5c5ecd-3a00-4c54-a24a-e765111f818b.png#align=left&display=inline&height=398&margin=%5Bobject%20Object%5D&name=image.png&originHeight=796&originWidth=1726&size=111888&status=done&style=none&width=863">
+<meta property="og:updated_time" content="2020-11-10T04:25:24.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析&amp;lt;1.环境搭建&amp;gt;">
 <meta name="twitter:description" content="先去 github 或码云下载 Spring 源码,我这里直接 fork 一份到自己的 github,然后从自己的 github 仓库拉 clone  Spring 官方代码地址: https://github.com/spring-projects/spring-framework 点右上角的 fork  到自己的 github 找到刚才 fork 好的仓库(相当于直接把 spring 的官方">
@@ -375,12 +380,24 @@
                 
               
 
-              <time title="Created: 2020-11-06 13:58:26 / Modified: 14:28:28" itemprop="dateCreated datePublished" datetime="2020-11-06T13:58:26+08:00">2020-11-06</time>
+              <time title="Created: 2020-11-06 13:58:26" itemprop="dateCreated datePublished" datetime="2020-11-06T13:58:26+08:00">2020-11-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2020-11-10 12:25:24" itemprop="dateModified" datetime="2020-11-10T12:25:24+08:00">2020-11-10</time>
               
             
           </span>
@@ -436,10 +453,24 @@
 <ol start="7">
 <li>将自己项目与刚才编译好的源码相关联,此处可以采用 2 中方式<ol>
 <li>另外起一个项目,添加 spring 的依赖,然后更改项目的 Project Structure,删除原有从 maven 仓库里导入的 spring 包和源码,添加自己刚才编译好的 jar 包和源码<img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604643760687-f33b0483-0663-4690-a1b5-21701f4e5462.png#align=left&amp;display=inline&amp;height=837&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=837&amp;originWidth=1024&amp;size=170964&amp;status=done&amp;style=none&amp;width=1024" alt="image.png"></li>
-<li>就在此项目另外添加一个测试的 module,强烈推荐这种方法, <strong>优点: 不用 2 个项目切来切去! </strong></li>
+<li>就在此项目另外添加一个测试的 module,强烈推荐这种方法, <strong>优点: 不用 2 个项目切来切去! </strong>点击 File-&gt;New-&gt;Module…-&gt;Gradle-&gt;Java-&gt;Next<br><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604644361389-ce313db4-4bf1-4fc6-b13e-247ce0460815.png#align=left&amp;display=inline&amp;height=579&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=579&amp;originWidth=838&amp;size=70637&amp;status=done&amp;style=none&amp;width=838" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604644476559-672006b3-9444-440b-993c-2099dbac8386.png#align=left&amp;display=inline&amp;height=579&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=579&amp;originWidth=838&amp;size=45783&amp;status=done&amp;style=none&amp;width=838" alt="image.png"><br>添加好的 Module 中,需要更改一下 build.gradle 来添加依赖 <strong>compile(project(“:spring-beans”))</strong><br><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604644631975-33b59825-9f9b-452d-b927-781180ae953f.png#align=left&amp;display=inline&amp;height=446&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=446&amp;originWidth=1060&amp;size=91731&amp;status=done&amp;style=none&amp;width=1060" alt="image.png"></li>
 </ol>
 </li>
+<li>至此环境已经搭建完毕,代码只需要在 source-code-test 中编写,打的断点就能正常进入</li>
 </ol>
+<h3 id="可能遇到的错误"><a href="#可能遇到的错误" class="headerlink" title="可能遇到的错误"></a>可能遇到的错误</h3><ol>
+<li>编译失败</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Build file <span class="string">'/Users/leon/Documents/IdeaProjects/github/spring-framework/build.gradle'</span> line: <span class="number">15</span></span><br><span class="line">An exception occurred applying plugin request [id: <span class="string">'com.gradle.build-scan'</span>, version: <span class="string">'1.8'</span>]</span><br><span class="line">&gt; Failed to apply plugin [id <span class="string">'com.gradle.build-scan'</span>]</span><br><span class="line">   &gt; This version of Gradle <span class="keyword">requires</span> version <span class="number">2.0</span>.2 of the build scan plugin or later.</span><br><span class="line">     Please see https:<span class="comment">//gradle.com/scans/help/gradle-incompatible-plugin-version for more information.</span></span><br></pre></td></tr></table></figure>
+<p><strong> 原因 gradle 版本太高了 plugin1.8 gradle 用 4.1-4.10 (如果 gradle 配置项选的是 wrapper file 方式,那就需要改 gradle-wrapper.properties</strong><br><img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604650039171-0d2837ec-5fe6-40a4-b6d5-dedcb35aae2c.png#align=left&amp;display=inline&amp;height=564&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=564&amp;originWidth=1242&amp;size=63415&amp;status=done&amp;style=none&amp;width=1242" alt="image.png"></p>
+<ol start="2">
+<li>自己新建的项目,build.gradle 出现虚线,并且在写测试用例的时候不能引入相关包,<img src="https://cdn.nlark.com/yuque/0/2020/png/2403327/1604981915137-1d5c5ecd-3a00-4c54-a24a-e765111f818b.png#align=left&amp;display=inline&amp;height=398&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=796&amp;originWidth=1726&amp;size=111888&amp;status=done&amp;style=none&amp;width=863" alt="image.png"><br>出现这个问题是因为 idea 新建 module 默认的 gradle 配置文件名为 build.gradle,需要手动改为\${你的 project.name}.gradle 因为官方的 build.gradle 有这一行,此处一定要改,不然自己的 module 不能正确编译</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rootProject.children.find&#123; it.name == <span class="string">"buildSrc"</span> &#125;.name = <span class="string">"spring-build-src"</span></span><br><span class="line"></span><br><span class="line">rootProject.name = <span class="string">"spring"</span></span><br><span class="line">rootProject.children.each &#123;project -&gt;</span><br><span class="line">	project.buildFileName = <span class="string">"$&#123;project.name&#125;.gradle"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>根目录 build.gradle 文件报错,我这里报的是 DependencyResolveDetails 找不到,此处直接把 DependencyResolveDetails 删掉就行</li>
+</ol>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">configurations.all &#123;</span><br><span class="line">		<span class="comment">// Check for updates every build</span></span><br><span class="line">		resolutionStrategy.cacheChangingModulesFor <span class="number">0</span>, <span class="string">"seconds"</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// Consistent slf4j version (e.g. clashes between slf4j versions)</span></span><br><span class="line">		resolutionStrategy.eachDependency &#123; DependencyResolveDetails details -&gt;</span><br><span class="line">			<span class="keyword">if</span> (details.requested.group == <span class="string">"org.slf4j"</span>) &#123;</span><br><span class="line">				details.useVersion slf4jVersion</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -522,8 +553,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +611,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#可能遇到的错误"><span class="nav-number">1.</span> <span class="nav-text">可能遇到的错误</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
